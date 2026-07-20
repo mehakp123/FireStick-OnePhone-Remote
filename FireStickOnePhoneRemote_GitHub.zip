@@ -1,0 +1,15 @@
+python3 - <<'PY'
+from pathlib import Path
+
+p = Path("app/src/main/java/com/pannu/firestickremote/MainActivity.kt")
+s = p.read_text()
+
+s = s.replace(
+        "Intent(Settings.ACTION_TETHER_SETTINGS)",
+            'Intent("android.settings.TETHER_SETTINGS")'
+)
+
+p.write_text(s)
+print("Fixed hotspot settings intent")
+PY
+)
