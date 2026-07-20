@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fire Stick Rescue Remote"
+            android:textColor="@color/text_primary"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Use one phone as the old Wi-Fi hotspot and remote."
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/card_background"
+            android:orientation="vertical">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="1. Rescue hotspot" android:textColor="@color/text_primary"
+                android:textSize="20sp" android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:hint="Old Wi-Fi name (SSID)">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/oldSsid" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Old Wi-Fi password" app:endIconMode="password_toggle">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/oldPassword" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/openHotspot" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="Open hotspot settings" />
+
+            <TextView android:id="@+id/hotspotHint" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                android:text="Set the hotspot name and password exactly the same as the old Wi-Fi, then switch it on."
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_background"
+            android:orientation="vertical">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="2. Find and pair Fire Stick" android:textColor="@color/text_primary"
+                android:textSize="20sp" android:textStyle="bold" />
+
+            <Spinner android:id="@+id/modelSpinner" android:layout_width="match_parent"
+                android:layout_height="52dp" android:layout_marginTop="8dp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/scanButton" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="Auto scan" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/diagnoseButton" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_marginStart="8dp"
+                    android:layout_weight="1" android:text="Diagnose" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Fire Stick IP address">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ipAddress" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="text"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/requestPin" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="Show PIN on TV" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" android:layout_weight="1"
+                    android:hint="4-digit PIN">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pinInput" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:maxLength="4" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/verifyPin" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Pair and save connection" />
+
+            <TextView android:id="@+id/statusText" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="Status: Not connected" android:textColor="@color/warning"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_background"
+            android:gravity="center_horizontal" android:orientation="vertical">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="3. Remote control" android:textColor="@color/text_primary"
+                android:textSize="20sp" android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upButton" android:layout_width="88dp"
+                android:layout_height="64dp" android:layout_marginTop="10dp" android:text="▲" />
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton android:id="@+id/leftButton"
+                    android:layout_width="88dp" android:layout_height="64dp" android:text="◀" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/selectButton"
+                    android:layout_width="88dp" android:layout_height="64dp"
+                    android:layout_marginHorizontal="5dp" android:text="OK" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/rightButton"
+                    android:layout_width="88dp" android:layout_height="64dp" android:text="▶" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/downButton" android:layout_width="88dp"
+                android:layout_height="64dp" android:text="▼" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton android:id="@+id/backButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="Back" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/homeButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp" android:layout_weight="1" android:text="Home" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/menuButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="Menu" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton android:id="@+id/rewindButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="⏪" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/playButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp" android:layout_weight="1" android:text="Play/Pause" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/forwardButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="⏩" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:hint="Type text for Fire Stick keyboard">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInput" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sendTextButton" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Send text" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton android:id="@+id/netflixButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="Netflix" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/youtubeButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp" android:layout_weight="1" android:text="YouTube" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/primeButton"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp" android:layout_weight="1" android:text="Prime" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_background"
+            android:orientation="vertical">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="4. Move Fire Stick to the new Wi-Fi" android:textColor="@color/text_primary"
+                android:textSize="20sp" android:textStyle="bold" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:hint="New/current Wi-Fi name">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newSsid" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="New/current Wi-Fi password" app:endIconMode="password_toggle">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newPassword" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="On Fire Stick: Settings → Network → select the new Wi-Fi → enter its password. After it disconnects from the rescue hotspot, turn off your hotspot, join the new Wi-Fi on this phone, and press Auto scan again."
+                android:textColor="@color/text_secondary" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sendNewPassword" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="Send new Wi-Fi password to Fire Stick" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/copyNewPassword" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Copy new Wi-Fi password on phone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_background"
+            android:orientation="vertical">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Diagnostics" android:textColor="@color/text_primary"
+                android:textSize="20sp" android:textStyle="bold" />
+            <TextView android:id="@+id/logText" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:fontFamily="monospace" android:text="Ready."
+                android:textColor="@color/text_secondary" android:textIsSelectable="true" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareLog" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="Share diagnostic report" />
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp" android:gravity="center"
+            android:text="PANNU • Local network only • No server required"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+</ScrollView>

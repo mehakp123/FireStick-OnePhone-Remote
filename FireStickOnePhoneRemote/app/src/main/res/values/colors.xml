@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand">#FF9900</color>
+    <color name="brand_dark">#C66F00</color>
+    <color name="surface">#151515</color>
+    <color name="card">#242424</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#CFCFCF</color>
+    <color name="success">#58D68D</color>
+    <color name="warning">#F7DC6F</color>
+    <color name="error">#FF6B6B</color>
+</resources>
