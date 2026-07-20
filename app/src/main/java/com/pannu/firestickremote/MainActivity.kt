@@ -278,7 +278,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openHotspotSettings() {
-        val intent = Intent(Settings.ACTION_TETHER_SETTINGS)
+        val intent = Intent("android.settings.TETHER_SETTINGS")
         try {
             startActivity(intent)
         } catch (_: Exception) {
